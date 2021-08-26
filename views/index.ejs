@@ -1,0 +1,113 @@
+<%- include("./partials/_header") -%>
+
+
+  
+<%- include("./partials/_navigation") -%>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Clean Blog</h1>
+            <span class="subheading">A Blog Theme Example </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <hr>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+          <% for(let i = 0; i<photos.length ; i++){  %>
+          <a href="/photos/<%= photos[i]._id %>">
+            <h2 class="post-title">
+             <%= photos[i].name %>
+            </h2>
+            <h3 class="post-subtitle">
+             <%= photos[i].description%>
+            </h3>
+          </a>
+        <% } %>
+ 
+  <!-- Catolog Paging Buttons -->
+  <hr>
+
+  <div class="nav">
+    <%   if(pages>0) { %>
+
+          <ul class="nav tm-paging-links"> 
+               <% for(let i = 1; i <=pages ; i++){ %>
+                <%   if(i == current) { %>
+                    <li class="nav-item active"><a href="/?page=<%= i %>"   class = "nav-link tm-paging-link"><%= i %></a></li>
+              
+
+                <% }  else if(i < pages) { %>
+                  <li class="nav-item"><a href="/?page=<%= i %>"  class = "nav-link tm-paging-link"><%= i %></a></li>
+             
+
+              <%  } else { %>
+                <li class="nav-item"><a href="/?page=<%= i %>"   class = "nav-link tm-paging-link">></a></li>
+            <% } %>
+              <% } %>
+
+            
+          </ul>
+
+
+<%   }   %>
+  </div>
+  <hr>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../public/jquery/jquery.min.js"></script>
+  <script src="../public/bootstrap/js/boststrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../public\jquery\jquery.min.js"></script>
+
+</body>
+
+</html>
